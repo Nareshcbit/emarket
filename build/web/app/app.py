@@ -30,7 +30,8 @@ def hello():
 
 @app.route('/authors')
 def get_authors():
-        data = cursor.execute("select * from mydb.authors_tbl")
+        cursor.execute("select * from mydb.authors_tbl")
+        data = cursor.fetchone()
         return data
  
 if __name__ == "__main__":
