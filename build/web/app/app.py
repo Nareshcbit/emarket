@@ -20,7 +20,7 @@ dbconnection = MySQLdb.connect(host="192.168.0.13",
                         user = "naresh",
                         passwd = "P@ssword",
                         db = "mydb")
-cursor = conn.cursor()
+cursor = dbconnection.cursor()
 
 
  
@@ -28,10 +28,10 @@ cursor = conn.cursor()
 def hello():
     return "Hello World!"
 
-app.route('/authors')
-def get_authors(uid):
+@app.route('/authors')
+def get_authors():
         cursor.execute("select * from mydb.authors_tbl")
         return data
  
 if __name__ == "__main__":
-    app.run(debug=True,host='0.0.0.0')
+    app.run(debug=True,host='0.0.0.0',port=5000)
