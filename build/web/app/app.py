@@ -3,11 +3,11 @@
 from flask import Flask
 from flask import Response
 from flask import request
-from redis import Redis
+#from redis import Redis
 from datetime import datetime
 import MySQLdb
 import sys
-import redis 
+#import redis 
 import time
 import hashlib
 import os
