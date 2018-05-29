@@ -26,8 +26,8 @@ def authors():
 	cursor = mysql.connection.cursor()
 	cursor.execute("SELECT * from authors_tbl")
 	data = cursor.fetchall()
-	return str(data)
-    #return render_template('authors.html')
+	#return str(data)
+    return render_template('authors.html', data)
 @app.route('/authors_add', methods=['GET', 'POST'])
 def authors_add():
     cur = mysql.connection.cursor()
