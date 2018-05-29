@@ -1,10 +1,11 @@
 # flask_web/app.py
 
-from flask import Flask, render_template, request, redirect
+from flask import Flask
 from flask import render_template
 from flask import request, redirect
 from flask_mysqldb import MySQL
 import yaml
+
 
 
 app = Flask(__name__)

@@ -2,6 +2,7 @@ class Config(object):
     """
     Common configurations
     """
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
     # Put any configurations here that are common across all environments
 
