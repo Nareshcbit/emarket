@@ -1,9 +1,11 @@
 FROM python:2.7
 
 RUN apt-get update && apt-get install -y python-pip python-dev default-libmysqlclient-dev
-RUN pip install --upgrade pip && pip install --no-cache-dir -r /webapp/app/requirements.txt
 
 COPY . /webapp
+RUN pip install --upgrade pip && pip install --no-cache-dir -r /webapp/app/requirements.txt
+
+
 
 ENV FLASK_ENV="docker"
 ENV MYSQL_DATABASE mydb
