@@ -4,3 +4,4 @@ mysql-connector
 flask-sqlalchemy
 flask-migrate
 redis
+flask_mysqldb
