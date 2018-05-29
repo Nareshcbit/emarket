@@ -28,19 +28,26 @@ def authors():
 	authors = cursor.fetchall()
 
 	#return str(data)
+	cursor.close()
 	return render_template('authors.html', authors = authors)
 
 @app.route('/authors_add', methods=['GET', 'POST'])
 def authors_add():
-    cur = mysql.connection.cursor()
+    
     if request.method == 'POST':
+
         authorDetails = request.form
-        id = authorDetails['id']
         firstname = authorDetails['firstname']
         lastname = authorDetails['lastname']
-        return id
-    else:
 
+        cursor = mysql.connection.cursor()
+        cursor.execute("INSERT INTO authors_tbl (author_firstname,author_lastname) VALUES (%s,%s)", (firstname,lastname))  
+        cursor = mysql.connection.cursor()
+        mysql.connection.commit()
+        cursor.close()
+
+        return redirect('/authors')
+    else:
         return render_template('authors_add.html')
 
 if __name__ == "__main__":
