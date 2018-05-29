@@ -21,37 +21,19 @@ app.config['MYSQL_DB'] = db['mysql_db']
 mysql = MySQL(app)
 
 @app.route("/")
-def index():
-    return render_template('index.html')
-
-@app.route("/authors")
-def authors():
+@app.route("/index")
+@app.route("/items")
+def list_items():
 	cursor = mysql.connection.cursor()
-	cursor.execute("SELECT * from authors_tbl")
-	authors = cursor.fetchall()
+	cursor.execute("SELECT * from items")
+	items = cursor.fetchall()
 
 	#return str(data)
 	cursor.close()
-	return render_template('authors.html', authors = authors)
+	return render_template('items.html', items = items)
 
-@app.route('/authors_add', methods=['GET', 'POST'])
-def authors_add():
-    
-    if request.method == 'POST':
 
-        authorDetails = request.form
-        firstname = authorDetails['firstname']
-        lastname = authorDetails['lastname']
 
-        cursor = mysql.connection.cursor()
-        cursor.execute("INSERT INTO authors_tbl (author_firstname,author_lastname) VALUES (%s,%s)", (firstname,lastname))  
-        cursor = mysql.connection.cursor()
-        mysql.connection.commit()
-        cursor.close()
-
-        return redirect('/authors')
-    else:
-        return render_template('authors_add.html')
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=5000)
