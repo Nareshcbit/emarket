@@ -9,7 +9,7 @@ ENV MYSQL_DATABASE mydb
 ENV MYSQL_USER naresh
 ENV MYSQL_PASSWORD P@ssword
 
-RUN echo 'MYSQL_DATABASE_N: '"'"'$MYSQL_DATABASE'"'"' ' >> /webapp/app/dbconf.yaml
+RUN echo '\n MYSQL_DATABASE_N: '"'"'$MYSQL_DATABASE'"'"' ' >> /webapp/app/dbconf.yaml
 
 WORKDIR /webapp/app
 
