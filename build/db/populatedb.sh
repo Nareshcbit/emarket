@@ -1,2 +1,2 @@
 #!/bin/bash
- mysql -h 192.168.0.13 -unaresh -pP@ssword < /docker-entrypoint-initdb.d/initiatedb.sql
+ mysql -h 127.0.0.1 -unaresh -pP@ssword < $MYSQL_SCRIPTS_PATH/initiatedb.sql
