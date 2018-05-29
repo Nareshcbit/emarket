@@ -5,3 +5,4 @@ flask-sqlalchemy
 flask-migrate
 redis
 flask_mysqldb
+pyyaml
