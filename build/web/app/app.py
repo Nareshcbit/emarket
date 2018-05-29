@@ -23,9 +23,14 @@ def index():
 
 @app.route("/authors")
 def authors():
-    return render_template('authors.html')
+	cursor = mysql.connection.cursor()
+	cursor.execute("SELECT * from authors_tbl")
+	data = cursor.fetchall()
+	return data
+    #return render_template('authors.html')
 @app.route('/authors_add', methods=['GET', 'POST'])
 def authors_add():
+    cur = mysql.connection.cursor()
     if request.method == 'POST':
         authorDetails = request.form
         id = authorDetails['id']
@@ -33,6 +38,7 @@ def authors_add():
         lastname = authorDetails['lastname']
         return id
     else:
+
         return render_template('authors_add.html')
 
 if __name__ == "__main__":
