@@ -13,10 +13,10 @@ ENV MYSQL_USER naresh
 ENV MYSQL_PASSWORD P@ssword
 ENV MYSQL_HOST 192.168.0.13
 
-RUN echo -e "MYSQL_HOST_N:" "'"${MYSQL_HOST}"'" > /webapp/app/dbconf01.txt && \
-    echo -e "MYSQL_DATABASE_N:" "'"${MYSQL_DATABASE}"'" >> /webapp/app/dbconf01.txt && \
-    echo -e "MYSQL_USER_N:" "'"${MYSQL_USER}"'" >> /webapp/app/dbconf01.txt && \
-    echo -e "MYSQL_PASSWORD_N:" "'"${MYSQL_PASSWORD}"'" >> /webapp/app/dbconf01.txt
+RUN echo "MYSQL_HOST:" "'"${MYSQL_HOST}"'" >> /webapp/app/dbconf01.txt && \
+    echo "MYSQL_DATABASE:" "'"${MYSQL_DATABASE}"'" >> /webapp/app/dbconf01.txt && \
+    echo "MYSQL_USER:" "'"${MYSQL_USER}"'" >> /webapp/app/dbconf01.txt && \
+    echo "MYSQL_PASSWORD:" "'"${MYSQL_PASSWORD}"'" >> /webapp/app/dbconf01.txt
 
 
 
