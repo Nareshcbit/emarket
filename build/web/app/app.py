@@ -32,6 +32,25 @@ def list_items():
 	cursor.close()
 	return render_template('items.html', items = items)
 
+@app.route('/items_add', methods=['GET', 'POST'])
+def items_add():
+    
+    if request.method == 'POST':
+        itemDetails = request.form
+        vendor = itemDetails['vendor']
+        category = itemDetails['category']
+        model = itemDetails['model']
+        cost = itemDetails['cost']
+
+        cursor = mysql.connection.cursor()
+        cursor.execute("INSERT INTO items (vendor,category,model,cost) VALUES (%s,%s,%s,%s)", (vendor,category,model,cost))  
+        cursor = mysql.connection.cursor()
+        mysql.connection.commit()
+        cursor.close()
+
+        return redirect('/items')
+    else:
+        return render_template('items_add.html')
 
 
 
