@@ -25,9 +25,10 @@ def index():
 def authors():
 	cursor = mysql.connection.cursor()
 	cursor.execute("SELECT * from authors_tbl")
-	data = cursor.fetchall()
+	authors = cursor.fetchall()
 	#return str(data)
-    return render_template('authors.html', data)
+    return render_template('authors.html', authors = authors)
+
 @app.route('/authors_add', methods=['GET', 'POST'])
 def authors_add():
     cur = mysql.connection.cursor()
