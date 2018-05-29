@@ -10,3 +10,4 @@ create table if not exists items(
 insert into items (vendor, category, model, cost) values('Dell', 'Laptop', '5577', 999);
 insert into items (vendor, category, model, cost) values('Apple', 'iphone', 'X', 1200);
 insert into items (vendor, category, model, cost) values('Samsung', 'Note', '8', 720);
+insert into items (vendor, category, model, cost) values('Apple', 'iPad', 'Pro', 780);
