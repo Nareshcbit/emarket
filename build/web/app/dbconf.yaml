@@ -1,5 +1,5 @@
-#MYSQL_HOST: '192.168.0.13'
-#MYSQL_USER: 'naresh'
+MYSQL_HOST: '192.168.0.13'
+MYSQL_USER: 'naresh'
 # Enter your password in field below
-#MYSQL_PASSWORD: 'P@ssword'
-#MYSQL_DB: 'mydb'
+MYSQL_PASSWORD: 'P@ssword'
+MYSQL_DB: 'mydb'
