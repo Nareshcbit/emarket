@@ -1,8 +1,5 @@
 <html>
 	{% for item in items %}
-		Category: {{item[1]}} <br/>
-		Vendor: {{item[0]}} <br/>
-		Model: {{item[2]}} <br/>
-		Cost: {{item[3]}} <br/>
+		{{item[1]}} {{item[0]}} {{item[2]}} {{item[3]}} <br/>
 	{% endfor %}
 </html>
