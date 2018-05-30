@@ -13,7 +13,7 @@ ENV MYSQL_USER naresh
 ENV MYSQL_PASSWORD P@ssword
 ENV MYSQL_HOST 192.168.0.2
 
-RUN echo "MYSQL_HOST:" "'"${MYSQL_HOST}"'" >> /webapp/app/dbconf.yaml && \
+RUN echo "MYSQL_HOST:" "'"${MYSQL_HOST}"'" > /webapp/app/dbconf.yaml && \
     echo "MYSQL_DB:" "'"${MYSQL_DATABASE}"'" >> /webapp/app/dbconf.yaml && \
     echo "MYSQL_USER:" "'"${MYSQL_USER}"'" >> /webapp/app/dbconf.yaml && \
     echo "MYSQL_PASSWORD:" "'"${MYSQL_PASSWORD}"'" >> /webapp/app/dbconf.yaml
