@@ -23,14 +23,14 @@ mysql = MySQL(app)
 @app.route("/")
 @app.route("/index")
 @app.route("/items")
-def list_items():
+def items_list():
 	cursor = mysql.connection.cursor()
 	cursor.execute("SELECT * from items")
 	items = cursor.fetchall()
 
 	#return str(data)
 	cursor.close()
-	return render_template('items.html', items = items)
+	return render_template('items_list.html', items = items)
 
 @app.route('/items_add', methods=['GET', 'POST'])
 def items_add():
@@ -48,7 +48,7 @@ def items_add():
         mysql.connection.commit()
         cursor.close()
 
-        return redirect('/items')
+        return redirect('/items_list')
     else:
         return render_template('items_add.html')
 
