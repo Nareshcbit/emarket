@@ -18,7 +18,7 @@ RUN echo "" >> /webapp/app/config.yaml && \
     echo "DB_HOST:" "'"${DB_HOST}"'" >> /webapp/app/config.yaml && \
     echo "DB_NAME:" "'"${DB_NAME}"'" >> /webapp/app/config.yaml && \
     echo "DB_USER:" "'"${DB_USER}"'" >> /webapp/app/config.yaml && \
-    echo "DB_USER_PASSWORD:" "'"${DB_USER_PASSWORD}"'" >> /webapp/app/config.yaml \
+    echo "DB_USER_PASSWORD:" "'"${DB_USER_PASSWORD}"'" >> /webapp/app/config.yaml && \
     echo "REDIS_HOST:" "'"${REDIS_HOST}"'" >> /webapp/app/config.yaml 
 
 
