@@ -11,12 +11,12 @@ ENV FLASK_ENV="docker"
 ENV MYSQL_DATABASE mydb
 ENV MYSQL_USER naresh
 ENV MYSQL_PASSWORD P@ssword
-ENV MYSQL_HOST 192.168.0.13
+ENV MYSQL_HOST 192.168.0.2
 
-RUN echo "MYSQL_HOST:" "'"${MYSQL_HOST}"'" >> /webapp/app/dbconf01.yaml && \
-    echo "MYSQL_DATABASE:" "'"${MYSQL_DATABASE}"'" >> /webapp/app/dbconf01.yaml && \
-    echo "MYSQL_USER:" "'"${MYSQL_USER}"'" >> /webapp/app/dbconf01.yaml && \
-    echo "MYSQL_PASSWORD:" "'"${MYSQL_PASSWORD}"'" >> /webapp/app/dbconf01.yaml
+RUN echo "MYSQL_HOST:" "'"${MYSQL_HOST}"'" >> /webapp/app/dbconf.yaml && \
+    echo "MYSQL_DB:" "'"${MYSQL_DATABASE}"'" >> /webapp/app/dbconf.yaml && \
+    echo "MYSQL_USER:" "'"${MYSQL_USER}"'" >> /webapp/app/dbconf.yaml && \
+    echo "MYSQL_PASSWORD:" "'"${MYSQL_PASSWORD}"'" >> /webapp/app/dbconf.yaml
 
 
 
