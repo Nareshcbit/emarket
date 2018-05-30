@@ -12,10 +12,10 @@ app = Flask(__name__)
 
 # Configure db
 db = yaml.load(open('dbconf.yaml'))
-app.config['MYSQL_HOST'] = db['MYSQL_HOST']
-app.config['MYSQL_USER'] = db['MYSQL_USER']
-app.config['MYSQL_PASSWORD'] = db['MYSQL_PASSWORD']
-app.config['MYSQL_DB'] = db['MYSQL_DATABASE']
+app.config['MYSQL_HOST'] = db['DB_HOST']
+app.config['MYSQL_USER'] = db['DB_USER']
+app.config['MYSQL_PASSWORD'] = db['DB_USER_PASSWORD']
+app.config['MYSQL_DB'] = db['DB_NAME']
 
 
 mysql = MySQL(app)
