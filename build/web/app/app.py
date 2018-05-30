@@ -11,11 +11,11 @@ import yaml
 app = Flask(__name__)
 
 # Configure db
-db = yaml.load(open('dbconf.yaml'))
-app.config['MYSQL_HOST'] = db['DB_HOST']
-app.config['MYSQL_USER'] = db['DB_USER']
-app.config['MYSQL_PASSWORD'] = db['DB_USER_PASSWORD']
-app.config['MYSQL_DB'] = db['DB_NAME']
+yaml_config = yaml.load(open('config.yaml'))
+app.config['MYSQL_HOST'] = yaml_config['DB_HOST']
+app.config['MYSQL_USER'] = yaml_config['DB_USER']
+app.config['MYSQL_PASSWORD'] = yaml_config['DB_USER_PASSWORD']
+app.config['MYSQL_DB'] = yaml_config['DB_NAME']
 
 
 mysql = MySQL(app)
@@ -31,6 +31,14 @@ def items_list():
 	#return str(data)
 	cursor.close()
 	return render_template('items_list.html', items = items)
+
+@app.route("/items_search", methods=['GET', 'POST'])
+def items_search():
+	if request.method == 'POST':
+		return "Developing"
+	else:
+		return render_template('items_search.html')
+
 
 @app.route('/items_add', methods=['GET', 'POST'])
 def items_add():
