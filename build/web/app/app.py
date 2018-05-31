@@ -13,7 +13,7 @@ import hashlib
 
 
 app = Flask(__name__)
-Bootstrap(app)
+
 
 # Configure db
 yaml_config = yaml.load(open('config.yaml'))
