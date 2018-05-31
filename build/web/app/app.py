@@ -30,6 +30,7 @@ REDIS_SERVER = redis.Redis(yaml_config['REDIS_HOST'], port=6379)
 @app.route("/")
 @app.route("/index")
 @app.route("/items")
+@app.route("/items_list")
 def items_list():
   cursor = mysql.connection.cursor()
   cursor.execute("SELECT * from items")
