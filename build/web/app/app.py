@@ -40,9 +40,10 @@ def items_list():
 @app.route("/items_search", methods=['GET', 'POST'])
 def items_search():
   if request.method == 'POST':
-    searchDetails = request.form
-    search_field = searchDetails['search_field']
-    return search_field
+    formData = request.form
+    vendorName = formData['vendor']
+
+    return vendorName
   else:
     return render_template('items_search.html')
 
