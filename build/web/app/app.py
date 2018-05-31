@@ -50,7 +50,7 @@ def items_search():
 
     cursor.close()
 
-    return str(items)
+    return render_template('items_list.html', items = items)
   else:
     return render_template('items_search.html')
 
