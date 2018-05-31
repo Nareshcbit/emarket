@@ -1,6 +1,12 @@
-{% extends "bootstrap/base.html" %}
-<html>
+{% extends "base.html" %}
+
+{% block page_name %}Index{% endblock %}
+
+{% block page_content %}
+
 	{% for item in items %}
-		{{item[1]}} {{item[2]}} {{item[3]}} {{item[4]}} <br/>
+	 {{item[1]}} {{item[2]}} {{item[3]}} {{item[4]}} <br/>
 	{% endfor %}
-</html>
+
+
+{% endblock %}
