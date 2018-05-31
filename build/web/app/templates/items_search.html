@@ -1,9 +1,17 @@
-{% extends "bootstrap/base.html" %}
-<form method="POST" action="">
-<label for="vendor">Filter Items by Vendor: </label>
-<select name="vendor">
-	{% for vendor in vendors %}
-		<option>{{vendor[0]}}</option>
-	{% endfor %}
-<input type="submit">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form method="POST" action="">
+	<label for="vendor">Filter Items by Vendor: </label>
+	<select name="vendor">
+		{% for vendor in vendors %}
+			<option>{{vendor[0]}}</option>
+		{% endfor %}
+	<input type="submit">
+	</form>
+
+</body>
+</html>
