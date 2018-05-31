@@ -65,7 +65,7 @@ def items_search():
 
   cursor.close()
 
-@app.route('items/<vendorName>')
+@app.route('/items/<vendorName>')
 def items_vendor(vendorName):
   return vendorName
 
