@@ -66,7 +66,7 @@ def items_search():
   cursor.close()
 
 @app.route('items/<vendorName>')
-def items_vendor():
+def items_vendor(vendorName):
   return vendorName
 
 @app.route('/items_add', methods=['GET', 'POST'])
