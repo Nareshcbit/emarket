@@ -42,8 +42,7 @@ def items_search():
 	if request.method == 'POST':
 		searchDetails = request.form
         search_field = searchDetails['search_field']
-
-	    return search_field
+        return search_field
 	else:
 		return render_template('items_search.html')
 
