@@ -6,3 +6,4 @@ flask-migrate
 redis
 flask_mysqldb
 pyyaml
+flask-bootstrap

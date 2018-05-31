@@ -4,6 +4,7 @@ from flask import Flask
 from flask import render_template
 from flask import request, redirect
 from flask_mysqldb import MySQL
+from flask_bootstrap import Bootstrap
 from redis import Redis
 import yaml
 import redis 
@@ -12,6 +13,7 @@ import hashlib
 
 
 app = Flask(__name__)
+Bootstrap(app)
 
 # Configure db
 yaml_config = yaml.load(open('config.yaml'))
