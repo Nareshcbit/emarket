@@ -4,7 +4,10 @@ from flask import Flask
 from flask import render_template
 from flask import request, redirect
 from flask_mysqldb import MySQL
+from redis import Redis
 import yaml
+import redis 
+import hashlib
 
 
 
@@ -16,9 +19,11 @@ app.config['MYSQL_HOST'] = yaml_config['DB_HOST']
 app.config['MYSQL_USER'] = yaml_config['DB_USER']
 app.config['MYSQL_PASSWORD'] = yaml_config['DB_USER_PASSWORD']
 app.config['MYSQL_DB'] = yaml_config['DB_NAME']
-
-
 mysql = MySQL(app)
+
+#Configure Redis
+REDIS_SERVER = redis.Redis(yaml_config['REDIS_HOST'], port=6379)
+
 
 @app.route("/")
 @app.route("/index")
