@@ -44,7 +44,7 @@ def items_search():
         search_field = searchDetails['search_field']
         return search_field
 	else:
-		return render_template('items_search.html')
+        return render_template('items_search.html')
 
 
 @app.route('/items_add', methods=['GET', 'POST'])
