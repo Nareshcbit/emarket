@@ -43,7 +43,13 @@ def items_search():
     formData = request.form
     vendorName = formData['vendor']
 
-    return vendorName
+    cursor = mysql.connection.cursor()
+    cursor.execute("Select * from items where vendor =" + vendorName)  
+    items = cursor.fetchall()
+
+    cursor.close()
+
+    return str(items)
   else:
     return render_template('items_search.html')
 
