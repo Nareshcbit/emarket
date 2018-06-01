@@ -3,3 +3,6 @@
 3. Dynamic -> Stub
 4. MySql
 5. Redis
+
+
+docker build -t nxgcloud/emarket-web:0.0.1 build/web/
