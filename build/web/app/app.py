@@ -38,12 +38,13 @@ def items_list():
 
   #return str(data)
   cursor.close()
-  return render_template('items_list.html', items = items)
+  return render_template('items_list.html', items = items, cache = 'no')
 
 @app.route("/items_search", methods=['GET', 'POST'])
 def items_search():
   
   cursor = mysql.connection.cursor()
+  cache = 'no'
 
   if request.method == 'POST':
     formData = request.form
@@ -52,16 +53,14 @@ def items_search():
     query_string = "select * from items where vendor = '%s'" %vendorName
     cursor.execute(query_string)  
     items = cursor.fetchall()
-    
-
-    return render_template('items_list.html', items = items)
+      
   else:
 
     query_string = "select distinct vendor from items"
     cursor.execute(query_string)  
     vendors = cursor.fetchall()
     
-    return render_template('items_search.html', vendors = vendors)
+  return render_template('items_search.html', vendors = vendors, cache = cache)
 
   cursor.close()
 
