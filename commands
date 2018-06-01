@@ -16,11 +16,13 @@ docker run -d --name=webc01 -p 5000:5000 nxgcloud/emarket-web:0.0.1
 
 docker run -d --name=dbc01 -p 3306:3306 nxgcloud/emarket-db:0.0.1
 
-docker run -d --name=redisc01 -p 6379:6379 nxgcloud/emarket-db:0.0.1
+docker run -d --name=redisc01 -p 6379:6379 nxgcloud/emarket-redis:0.0.1
 
 
 LIST
 ----
+
+docker stop webc01 && docker rm webc01 && git pull && docker build -t nxgcloud/emarket-web:0.0.1 build/web/ && docker run -d --name=webc01 -p 5000:5000 nxgcloud/emarket-web:0.0.1
 
 docker ps -f name=web0
 
