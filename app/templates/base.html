@@ -31,11 +31,14 @@
 
 </head>
 <body>
-	<div class="jumbotron">
-		<h1> Flash Sale! </h1>
-	</div>
-	<div class="container-fluid">
 
+	<div class="jumbotron">
+	 	{% block attention-grabber %} <h1> Flash Sale! </h1>
+ 		{% endblock %}
+ 	</div>
+
+
+	<div class="container-fluid">
 	 	{% block body %}
  		{% endblock %}
  	</div>
