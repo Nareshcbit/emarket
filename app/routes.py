@@ -8,10 +8,10 @@ def index():
     return render_template('index.html', title='Home', user=user)
 
 @app.route('/bootstrap')
-def index():
+def bootstrap():
     return render_template('bootstrap.html')
 
 @app.route('/nobootstrap')
-def index():
+def nobootstrap():
     return render_template('nobootstrap.html')
 
