@@ -9,6 +9,10 @@
 		<br/>
 		{% for dict_item in parent_dict %}
  			<h1> Hello </h1>
+ 			{% for key, value in dict_item.items() %}
+     			 <h1>Key: {{key}}</h1>
+      			<h2>Value: {{value}}</h2>
+   			{% endfor %}
 		{% endfor %}
 
 		<!--Table-->
