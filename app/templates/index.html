@@ -1,45 +1,35 @@
 
 {% extends "base.html" %}
 
-	{% block title %}  NXGLAB - Home Page		{% endblock %}
+{% block title %}  NXGLAB - Home Page		{% endblock %}
 
-	{% block body %}
+{% block body %}
  	
 		<h1>Hi, {{ user.username }}!</h1>
 		<br/>
 
-		{% for key, value in (parent_dict[0]).items() %}
-      		{{key}} : {{value}}
-   		{% endfor %}
-
-
-		<table class="table">
+	<table class="table">
 	    <!--Table head-->
 	    <thead>
 	        <tr>
-	            <th>Uid</th>
-	            <th>Vendor</th>
-	            <th>Category</th>
-	            <th>Model</th>
-	            <th>Price</th>
+	        	{% for key, value in (parent_dict[0]).items() %}
+      				<th>{{key}}</th>
+   				{% endfor %}
 	        </tr>
-	        
-
-
 	    </thead>
 	    <tbody>
-	  <!--Table head-->
-		{% for dict_item in parent_dict %}
+
+			{% for dict_item in parent_dict %}
 			<tr>
-  			{% for key, value in dict_item.items() %}
-      			<td>{{value}}</td>
-   			{% endfor %}
+  				{% for key, value in dict_item.items() %}
+      				<td>{{value}}</td>
+   				{% endfor %}
    			</tr>
-		{% endfor %}
+			{% endfor %}
+
 	 	</tbody>
-		</table>
+	</table>
 
-
- 	{% endblock %}
+{% endblock %}
 
 	
