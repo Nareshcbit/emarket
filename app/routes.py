@@ -6,10 +6,10 @@ from app import app
 def index():
     user = {'username': 'Naresh Madiraju'}
     parent_dict = [
-        {'uid':'1','vendor':'Dell', 'category':'Laptop', 'model':'XPS' ,'price':800},
-        {'uid':'2','vendor':'Apple', 'category':'Laptop', 'model':'Macbook Air' ,'price':1000},
-        {'uid':'3','vendor':'Apple', 'category':'Mobile', 'model':'iPhoneX' ,'price':1200},
-        {'uid':'4','vendor':'Samsung', 'category':'Mobile', 'model':'S9' ,'price':1100},
+        {'Uid':'1','Vendor':'Dell', 'Category':'Laptop', 'Model':'XPS' ,'Price':800},
+        {'Uid':'2','Vendor':'Apple', 'Category':'Laptop', 'Model':'Macbook Air' ,'Price':1000},
+        {'Uid':'3','Vendor':'Apple', 'Category':'Mobile', 'Model':'iPhoneX' ,'Price':1200},
+        {'Uid':'4','Vendor':'Samsung', 'Category':'Mobile', 'Model':'S9' ,'Price':1100},
         ]
     return render_template('index.html', title='Home', user=user, parent_dict = parent_dict)
 
