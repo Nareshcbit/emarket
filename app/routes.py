@@ -5,7 +5,11 @@ from app import app
 @app.route('/index')
 def index():
     user = {'username': 'Naresh Madiraju'}
-    return render_template('index.html', title='Home', user=user)
+    parent_dict = [
+        {'A':'val1','B':'val2'},
+        {'C':'val3','D':'val4'}
+        ]
+    return render_template('index.html', title='Home', user=user, parent_dict = parent_dict)
 
 @app.route('/bootstrap')
 def bootstrap():
