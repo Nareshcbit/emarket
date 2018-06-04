@@ -8,6 +8,11 @@
 		<h1>Hi, {{ user.username }}!</h1>
 		<br/>
 
+		{% for key, value in dict_item[0] %}
+      		{{key}} : {{value}}
+   		{% endfor %}
+
+
 		<table class="table">
 	    <!--Table head-->
 	    <thead>
@@ -18,6 +23,9 @@
 	            <th>Model</th>
 	            <th>Price</th>
 	        </tr>
+	        
+
+
 	    </thead>
 	    <tbody>
 	  <!--Table head-->
@@ -31,46 +39,6 @@
 	 	</tbody>
 		</table>
 
-
-		<!--Table-->
-<table class="table">
-
-    <!--Table head-->
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-        </tr>
-    </thead>
-  <!--Table head-->
-
-    <!--Table body-->
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-        <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-    </tbody>
-    <!--Table body-->
-
-</table>
-<!--Table-->
 
  	{% endblock %}
 
