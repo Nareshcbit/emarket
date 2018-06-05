@@ -53,4 +53,4 @@ def user_add():
 def user_list():
   
     users = User.query.all()
-    return str(users)
+    return render_template('user_list.html', users = users)

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}  eMarket - Nxglab   {% endblock %}
+
+
+{% block body %}
+
+{% for user in users %}
+	 {{user[1]}} {{user[2]}}  <br/>
+{% endfor %}
+
+{% endblock %}
