@@ -40,6 +40,9 @@ def user_add():
   
     form = UserForm()
     if request.method == 'POST':
-        return redirect('Development in Progress')
+        user = User(request.form['username'], request.form['email'])
+        db.session.add(user)
+        db.session.commit()
+        return redirect('/user_add')
     else:
         return render_template('user_add.html', form=form)
