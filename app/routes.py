@@ -66,7 +66,7 @@ def items_list():
         {'Uid':'4','Vendor':'Samsung', 'Category':'Mobile', 'Model':'S9' ,'Price':1100},
         ]
 
-    itemsList_Db = MyItems.query.all()
+    items_all = Items.query.all()
     return render_template('items_list.html', MyItems = itemsList_Db)  
 
 @app.route('/items_add', methods=['GET', 'POST'])
@@ -74,8 +74,8 @@ def items_add():
   
     form = AddItemsForm()
     if request.method == 'POST':
-        myitem = MyItems(request.form['Vendor'], request.form['Category'], request.form['Model'], request.form['Price'])
-        db.session.add(myitem)
+        newitem = Items(request.form['Vendor'], request.form['Category'], request.form['Model'], request.form['Price'])
+        db.session.add(newitem)
         db.session.commit()
         return redirect('/items_list')
     else:
