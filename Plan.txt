@@ -6,3 +6,7 @@
 
 
 docker build -t nxgcloud/emarket-web:0.0.1 build/web/
+
+docker build -t nxgcloud/emarket:0.0.1 .
+
+docker run -d --name=webc01 nxgcloud/emarket:0.0.1

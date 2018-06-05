@@ -1,5 +1,5 @@
 from flask import render_template, redirect, request
-from forms import ContactForm
+from app.forms import ContactForm
 
 from app import app
 
