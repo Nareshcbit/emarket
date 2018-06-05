@@ -67,7 +67,7 @@ def items_list():
         ]
 
     items_all = Items.query.all()
-    return render_template('items_list.html', MyItems = items_all)  
+    return render_template('items_list.html', MyItems = itemsList_temp)  
 
 @app.route('/items_add', methods=['GET', 'POST'])
 def items_add():

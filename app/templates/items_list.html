@@ -12,7 +12,7 @@
 	    <!--Table head-->
 	    <thead>
 	        <tr>
-	        	{% for key, value in (MyItems[0]).items() %}
+	        	{% for key in (MyItems[0]).items() %}
       				<th>{{key}}</th>
    				{% endfor %}
 	        </tr>
