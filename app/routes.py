@@ -1,4 +1,4 @@
-from app import app
+from app import app, db
 
 from flask import render_template, redirect, request
 from app.forms import ContactForm, UserForm
