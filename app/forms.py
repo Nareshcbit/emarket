@@ -13,3 +13,10 @@ class UserForm(FlaskForm):
   username = StringField("Name")
   email = StringField("Email")
   submit = SubmitField("Send")
+
+class AddItemsForm(FlaskForm):
+  Vendor = StringField("Vendor")
+  Category = StringField("Category")
+  Model = StringField("Model")
+  Price = IntegerField("Price")
+  submit = SubmitField("Add")

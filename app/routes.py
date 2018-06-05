@@ -1,7 +1,7 @@
 from app import app, db
 
 from flask import render_template, redirect, request
-from app.forms import ContactForm, UserForm
+from app.forms import ContactForm, UserForm, AddItemsForm
 from app.models import User, MyItems
 
 
@@ -67,3 +67,15 @@ def items_list():
         ]
 
     return render_template('items_list.html', MyItems = MyItems)  
+
+@app.route('/items_add', methods=['GET', 'POST'])
+def items_add():
+  
+    form = AddItemsForm()
+    if request.method == 'POST':
+        myitem = MyItems(request.form['Vendor'], request.form['Category'], request.form['Model'], request.form['Price'])
+        db.session.add(myitem)
+        db.session.commit()
+        return redirect('/items_list')
+    else:
+        return render_template('items_add.html', form=form)
