@@ -12,3 +12,4 @@ class ContactForm(FlaskForm):
 class UserForm(FlaskForm):
   username = StringField("Name")
   email = StringField("Email")
+  submit = SubmitField("Send")
