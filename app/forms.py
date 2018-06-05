@@ -8,3 +8,7 @@ class ContactForm(FlaskForm):
   subject = StringField("Subject")
   message = StringField("Message")
   submit = SubmitField("Send")
+
+class UserForm(FlaskForm):
+  username = StringField("Name")
+  email = StringField("Email")

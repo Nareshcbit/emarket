@@ -1,5 +1,5 @@
 from flask import render_template, redirect, request
-from app.forms import ContactForm
+from app.forms import ContactForm, UserForm
 
 from app import app
 
@@ -38,7 +38,8 @@ def contact():
 @app.route('/user_add', methods=['GET', 'POST'])
 def user_add():
   
+    form = UserForm()
     if request.method == 'POST':
         return redirect('Development in Progress')
     else:
-        return render_template('user_add.html')
+        return render_template('user_add.html', form=form)
