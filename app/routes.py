@@ -48,3 +48,9 @@ def user_add():
         return redirect('/user_add')
     else:
         return render_template('user_add.html', form=form)
+
+@app.route('/user_list')
+def user_list():
+  
+    users = User.query.all()
+    return str(users)
