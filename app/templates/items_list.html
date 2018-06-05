@@ -1,0 +1,35 @@
+
+{% extends "base.html" %}
+
+{% block title %}  eMarket - Nxglab		{% endblock %}
+
+{% block body %}
+ 	
+		<h1>Inventory</h1>
+		<br/>
+
+	<table class="table">
+	    <!--Table head-->
+	    <thead>
+	        <tr>
+	        	{% for key, value in (MyItems[0]).items() %}
+      				<th>{{key}}</th>
+   				{% endfor %}
+	        </tr>
+	    </thead>
+	    <tbody>
+
+			{% for MyItem in MyItems %}
+			<tr>
+  				{% for key, value in MyItem.items() %}
+      				<td>{{value}}</td>
+   				{% endfor %}
+   			</tr>
+			{% endfor %}
+
+	 	</tbody>
+	</table>
+
+{% endblock %}
+
+	

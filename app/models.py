@@ -14,9 +14,9 @@ class User(db.Model):
         self.username = username
         self.email = email
 
-class Items(db.Model):
+class MyItems(db.Model):
 
-    __tablename__ = 'items'
+    __tablename__ = 'MyItems'
 
     Uid = db.Column(db.Integer, primary_key=True, autoincrement=True)
     Vendor = db.Column(db.String(64), index=True)
@@ -26,7 +26,7 @@ class Items(db.Model):
 
 
     def __repr__(self):
-        return '<Items {}>'.format(self.Uid)
+        return '<MyItems {}>'.format(self.Uid)
 
     def __init__(self, Vendor, Category, Model, Price):
         self.Vendor = Vendor
