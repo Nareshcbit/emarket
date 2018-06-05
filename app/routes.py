@@ -2,7 +2,7 @@ from app import app, db
 
 from flask import render_template, redirect, request
 from app.forms import ContactForm, UserForm
-from app.models import User, Items
+from app.models import User, MyItems
 
 
 app.secret_key = 'development key'
