@@ -2,7 +2,7 @@ from app import app, db
 
 from flask import render_template, redirect, request
 from app.forms import ContactForm, UserForm, AddItemsForm
-from app.models import User, MyItems
+from app.models import User, Items
 
 
 app.secret_key = 'development key'
@@ -59,15 +59,15 @@ def user_list():
 
 @app.route('/items_list')
 def items_list():
-    MyItemsTemp = [
+    itemsList_temp = [
         {'Uid':'1','Vendor':'Dell', 'Category':'Laptop', 'Model':'XPS' ,'Price':800},
         {'Uid':'2','Vendor':'Apple', 'Category':'Laptop', 'Model':'Macbook Air' ,'Price':1000},
         {'Uid':'3','Vendor':'Apple', 'Category':'Mobile', 'Model':'iPhoneX' ,'Price':1200},
         {'Uid':'4','Vendor':'Samsung', 'Category':'Mobile', 'Model':'S9' ,'Price':1100},
         ]
 
-    users = MyItems.query.all()
-    return render_template('items_list.html', MyItems = MyItems)  
+    itemsList_Db = MyItems.query.all()
+    return render_template('items_list.html', MyItems = itemsList_Db)  
 
 @app.route('/items_add', methods=['GET', 'POST'])
 def items_add():
