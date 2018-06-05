@@ -45,7 +45,7 @@ def user_add():
         user = User(request.form['username'], request.form['email'])
         db.session.add(user)
         db.session.commit()
-        return redirect('/user_add')
+        return redirect('/user_list')
     else:
         return render_template('user_add.html', form=form)
 
