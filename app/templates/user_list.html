@@ -6,6 +6,11 @@
 {% block body %}
 
 <h1> Hello World </h1>
+
+{{ users }}
+
+{{ users[1] }}
+
 {% for user in users %}
 	 {{user[1]}} {{user[2]}}  <br/>
 {% endfor %}
