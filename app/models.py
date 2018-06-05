@@ -11,5 +11,5 @@ class User(db.Model):
         return '<User {}>'.format(self.username)
 
     def __init__(self, username, email):
-        self.username = name
+        self.username = username
         self.email = email
