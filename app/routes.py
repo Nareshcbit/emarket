@@ -35,3 +35,10 @@ def contact():
     elif request.method == 'GET':
         return render_template('contact.html', form=form)
 
+@app.route('/user_add', methods=['GET', 'POST'])
+def user_add():
+  
+    if request.method == 'POST':
+        return redirect('Development in Progress')
+    else:
+        return render_template('user_add.html')
