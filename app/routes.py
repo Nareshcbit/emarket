@@ -34,8 +34,8 @@ def items_search():
     if request.method == 'POST':
 
         search_category = request.form['Category']
-        
-
+        matched_items = Items.query.filter_by(Category=search_category).all()
+        return render_template('items_list.html', MyItems = matched_items)  
         return search_category
     else:
         return render_template('items_search.html', form=form)
