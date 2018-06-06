@@ -13,6 +13,5 @@ class AddItemsForm(FlaskForm):
 class SearchItemsForm(FlaskForm):
   
   Category = StringField("Category")
-  Vendor = StringField("Vendor")
   submit = SubmitField("Search")
 
