@@ -20,7 +20,7 @@ def items_add():
   
     form = AddItemsForm()
     if request.method == 'POST':
-        newitem = Itemsrequest.form['Category'], (request.form['Vendor'], request.form['Model'], request.form['Price'])
+        newitem = Items(request.form['Category'], request.form['Vendor'], request.form['Model'], request.form['Price'])
         db.session.add(newitem)
         db.session.commit()
         return redirect('/items_list')
