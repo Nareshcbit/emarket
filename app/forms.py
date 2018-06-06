@@ -19,4 +19,4 @@ class AddItemsForm(FlaskForm):
   Category = StringField("Category")
   Model = StringField("Model")
   Price = IntegerField("Price")
-  submit = SubmitField("Add")
+  submit = SubmitField("Submit")
