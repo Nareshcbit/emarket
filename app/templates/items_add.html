@@ -6,27 +6,37 @@
 {% block body %}
 
   <h2>Add Items</h2>
-  <form role="form" action="{{ url_for('items_add') }}" method=post>
+  <form class="form-horizontal" action="{{ url_for('items_add') }}" method=post>
     {{ form.hidden_tag() }}
  
+ 	<div class="heading">
+        <h4 class="form-heading">Add Item</h4>
+    </div>
+
  	<div class="form-group">
 	{{ form.Vendor.label(class="col-sm-4") }}
+	</div>
+	<div class="col-sm-3">
     {{ form.Vendor(class="form-control") }}
     </div>
 
- 	<div class="form-group">
-	{{ form.Category.label }}
-    {{ form.Category }}
+ 	 <div class="form-group">
+	{{ form.Category.label(class="col-sm-4") }}
+	</div>
+	<div class="col-sm-3">
+    {{ form.Category(class="form-control") }}
     </div>
-
- 	<div class="form-group">
-	{{ form.Model.label }}
-    {{ form.Model }}
-    </div>
-
     <div class="form-group">
-	{{ form.Price.label }}
-    {{ form.Price }}
+	{{ form.Model.label(class="col-sm-4") }}
+	</div>
+	<div class="col-sm-3">
+    {{ form.Model(class="form-control") }}
+    </div>
+    <div class="form-group">
+	{{ form.Price.label(class="col-sm-4") }}
+	</div>
+	<div class="col-sm-3">
+    {{ form.Price(class="form-control") }}
     </div>
 
  	<br/> 	 	
