@@ -63,7 +63,7 @@ def items_list():
         {'Uid':'1','Vendor':'Dell', 'Category':'Laptop', 'Model':'XPS' ,'Price':800},
         {'Uid':'2','Vendor':'Apple', 'Category':'Laptop', 'Model':'Macbook Air' ,'Price':1000},
         {'Uid':'3','Vendor':'Apple', 'Category':'Mobile', 'Model':'iPhoneX' ,'Price':1200},
-        {'Uid':'4','Vendor':'Samsung', 'Category':'Mobile', 'Model':'S9' ,'Price':1100},
+        {'Uid':'5','Vendor':'Samsung', 'Category':'Mobile', 'Model':'S9' ,'Price':1100},
         ]
 
     items_all = Items.query.all()
