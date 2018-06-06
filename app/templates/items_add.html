@@ -10,10 +10,20 @@
     {{ form.hidden_tag() }}
  
  	<div class="form-group">
-    <label >{{ form.Vendor.label }}</label>
+	{{ form.Vendor.label }}
     {{ form.Vendor }}
-    <input type="text">
     </div>
+
+ 	<div class="form-group">
+	{{ form.Category.label }}
+    {{ form.Category }}
+    </div>
+
+ 	<div class="form-group">
+	{{ form.Model.label }}
+    {{ form.Model }}
+    </div>
+
 
     {{ form.Vendor.label }}
     {{ form.Vendor }}
