@@ -8,15 +8,14 @@
   <form class="inline" action="{{ url_for('items_search') }}" method=post>
     {{ form.hidden_tag() }}
 
-
    	<!-- Search form -->
-	<div class="md-form">
-    	{{ form.Category(class="form-control", placeholder="What do you want to buy?") }}
-	</div>
-
- 	<div class="form-group row" >
- 		<div class="col-sm-5 align-items-center"> {{ form.submit(class="btn btn-primary") }}  </div>		
+   	<div class="input-group md-form form-sm form-1 pl-0">
+    <div class="input-group-prepend">
+        <span class="input-group-text purple lighten-3" id="basic-text1"><i class="fa fa-search text-white" aria-hidden="true"></i></span>
     </div>
+    <input class="form-control my-0 py-1" type="text" placeholder="Laptop, Mobile, Tablet, etc.?" aria-label="Search ">
+    
+</div>
     
   </form>
 {% endblock %}
