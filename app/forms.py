@@ -3,15 +3,17 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField, Integ
 from wtforms.validators import DataRequired
  
 class AddItemsForm(FlaskForm):
-  Vendor = StringField("Vendor")
+
   Category = StringField("Category")
+  Vendor = StringField("Vendor")
   Model = StringField("Model")
   Price = IntegerField("Price")
   submit = SubmitField("Submit")
 
 class SearchItemsForm(FlaskForm):
-  Vendor = StringField("Vendor")
+  
   Category = StringField("Category")
+  Vendor = StringField("Vendor")
   Model = StringField("Model")
   submit = SubmitField("Search")
 
