@@ -12,6 +12,6 @@ class AddItemsForm(FlaskForm):
 
 class SearchItemsForm(FlaskForm):
   
-  Category = StringField("Category")
-  submit = SubmitField("Search")
+  Category = StringField("Category", description="Search Items in Category")
+  Submit = SubmitField("Search")
 
