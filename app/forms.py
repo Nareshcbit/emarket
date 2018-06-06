@@ -14,6 +14,5 @@ class SearchItemsForm(FlaskForm):
   
   Category = StringField("Category")
   Vendor = StringField("Vendor")
-  Model = StringField("Model")
   submit = SubmitField("Search")
 
