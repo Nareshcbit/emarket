@@ -14,7 +14,7 @@ class Items(db.Model):
     def __repr__(self):
         return '<Items {}>'.format(self.Uid)
 
-    def __init__(self, Vendor, Category, Model, Price):
+    def __init__(self, Category, Vendor, Model, Price):
         self.Category = Category
         self.Vendor = Vendor
         self.Model = Model
