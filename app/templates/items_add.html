@@ -9,6 +9,12 @@
   <form action="{{ url_for('items_add') }}" method=post>
     {{ form.hidden_tag() }}
  
+ 	<div class="form-group">
+    <label >{{ form.Vendor.label }}</label>
+    {{ form.Vendor }}
+    <input type="text">
+    </div>
+
     {{ form.Vendor.label }}
     {{ form.Vendor }}
  
