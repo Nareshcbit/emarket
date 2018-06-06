@@ -34,8 +34,8 @@ def items_search():
     if request.method == 'POST':
 
         search_category = request.form['Category']
+        
 
-
-        return "Development in progress"
+        return search_category
     else:
         return render_template('items_search.html', form=form)
