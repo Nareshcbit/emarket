@@ -23,10 +23,17 @@
 		    
 		 </form>
 
-		<div> <h3> Cached: {{ found_in_cache }}</h3> </div>
 
-		<h1>Items List</h1>
-		<br/>
+
+		 {% if found_in_cache == "True" %}
+
+		 <div class="alert alert-success" role="alert"> Result is in cache! </div>
+		 {% else %}
+
+		 <div class="alert alert-warning" role="alert"> Result is not in cache! </div>
+
+		 {% endif %}
+		
 
 	<table class="table">
 	    <!--Table head-->
