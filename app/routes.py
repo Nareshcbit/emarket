@@ -5,6 +5,9 @@ from app.forms import AddItemsForm, SearchItemsForm
 from app.models import Items
 from redis import Redis
 import redis
+import hashlib
+
+
 
 app.secret_key = 'development key'
 R_SERVER = redis.Redis('192.168.0.18', port=6379)
@@ -19,8 +22,9 @@ def homepage():
     if request.method == 'POST':
 
         search_category = request.form['Category']
-        
-        key = search_category
+        hash = hashlib.sha224(str(search_category)).hexdigest()
+        key = "sql_cache:" + hash
+
         if (R_SERVER.get(key)):
             found_in_cache = 'True'
             matched_items = R_SERVER.get(key)
@@ -29,6 +33,7 @@ def homepage():
             
             matched_items = Items.query.filter_by(Category=search_category).all()
             R_SERVER.set(key,matched_items)
+            R_SERVER.expire(key, 36);
         
         return render_template('homepage.html', form=form, MyItems = matched_items, found_in_cache = found_in_cache)  
     else:
