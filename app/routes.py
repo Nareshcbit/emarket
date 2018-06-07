@@ -6,7 +6,7 @@ from app.models import Items
 from redis import Redis
 import redis
 import hashlib
-
+import json
 
 
 app.secret_key = 'development key'
@@ -28,11 +28,13 @@ def homepage():
 
         if (R_SERVER.get(key)):
             found_in_cache = 'True'
-            matched_items = R_SERVER.get(key)
+            matched_items_json = R_SERVER.get(key)
+            return matched_items_json
         else:
             
             matched_items = Items.query.filter_by(Category=search_category).all()
-            R_SERVER.set(key,matched_items[0])
+            matched_itesm_json = json.dumps([dict(r) for r in matched_items])
+            R_SERVER.set(key,matched_itesm_json)
             R_SERVER.expire(key, 36);
         
         return render_template('homepage.html', form=form, MyItems = matched_items, found_in_cache = found_in_cache)  
