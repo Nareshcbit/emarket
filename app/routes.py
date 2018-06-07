@@ -7,7 +7,6 @@ from app.models import Items
 
 
 app.secret_key = 'development key'
-R_SERVER = redis.Redis('192.168.0.18', port=6379)
 
 @app.route('/')
 @app.route('/index')
