@@ -23,7 +23,7 @@ def homepage():
         key = search_category
         if (R_SERVER.get(key)):
             found_in_cache = 'True'
-            matched_items = Items.query.filter_by(Category=search_category).all()
+            matched_items = R_SERVER.get(key)
         else:
             
             matched_items = Items.query.filter_by(Category=search_category).all()
