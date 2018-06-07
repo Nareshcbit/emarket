@@ -24,7 +24,7 @@ def homepage():
         search_category = request.form['Category']
         hash = hashlib.sha224((str(search_category)).encode('utf-8')).hexdigest()
         key = "sql_cache:" + hash
-        matched_items
+        matched_items = None
 
         if (R_SERVER.get(key)):
             found_in_cache = 'True'
