@@ -24,6 +24,7 @@ def homepage():
         if (R_SERVER.get(key)):
             found_in_cache = 'True'
             matched_items = R_SERVER.get(key)
+            return str(matched_items)
         else:
             
             matched_items = Items.query.filter_by(Category=search_category).all()
