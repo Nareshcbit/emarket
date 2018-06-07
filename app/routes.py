@@ -15,10 +15,11 @@ R_SERVER = redis.Redis('192.168.0.18', port=6379)
 def homepage():
   
     form = SearchItemsForm()
+    found_in_cache = 'False'
     if request.method == 'POST':
 
         search_category = request.form['Category']
-        found_in_cache = 'False'
+        
         key = search_category
         if (R_SERVER.get(key)):
             found_in_cache = 'True'
