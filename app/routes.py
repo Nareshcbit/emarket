@@ -32,7 +32,7 @@ def homepage():
         else:
             
             matched_items = Items.query.filter_by(Category=search_category).all()
-            R_SERVER.set(key,matched_items)
+            R_SERVER.set(key,matched_items[0])
             R_SERVER.expire(key, 36);
         
         return render_template('homepage.html', form=form, MyItems = matched_items, found_in_cache = found_in_cache)  
