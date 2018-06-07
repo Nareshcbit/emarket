@@ -35,6 +35,6 @@ def items_add():
         newitem = Items(request.form['Category'], request.form['Vendor'], request.form['Model'], request.form['Price'])
         db.session.add(newitem)
         db.session.commit()
-        return redirect('/items_list')
+        return redirect('/index')
     else:
         return render_template('items_add.html', form=form)
