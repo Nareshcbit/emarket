@@ -5,7 +5,9 @@ from app.forms import AddItemsForm, SearchItemsForm
 from app.models import Items
 
 
+
 app.secret_key = 'development key'
+R_SERVER = redis.Redis('192.168.0.18', port=6379)
 
 @app.route('/')
 @app.route('/index')
@@ -34,7 +36,26 @@ def items_search():
     if request.method == 'POST':
 
         search_category = request.form['Category']
+        key = search_category
+
         matched_items = Items.query.filter_by(Category=search_category).all()
         return render_template('items_list.html', MyItems = matched_items)  
     else:
         return render_template('items_search.html', form=form)
+
+
+@app.route('/homepage', methods=['GET', 'POST'])
+def homepage():
+  
+    form = SearchItemsForm()
+    if request.method == 'POST':
+
+        search_category = request.form['Category']
+        key = search_category
+
+        matched_items = Items.query.filter_by(Category=search_category).all()
+        return render_template('homepage.html', form=form, MyItems = matched_items)  
+    else:
+
+        items_all = Items.query.all()
+        return render_template('homepage.html', form=form, MyItems = items_all)
