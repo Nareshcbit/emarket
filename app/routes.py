@@ -4,7 +4,7 @@ from flask import render_template, redirect, request
 from app.forms import AddItemsForm, SearchItemsForm
 from app.models import Items
 from redis import Redis
-
+import redis
 
 app.secret_key = 'development key'
 R_SERVER = redis.Redis('192.168.0.18', port=6379)
