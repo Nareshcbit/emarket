@@ -3,10 +3,11 @@ from app import app, db
 from flask import render_template, redirect, request
 from app.forms import AddItemsForm, SearchItemsForm
 from app.models import Items
-
+from redis import Redis
 
 
 app.secret_key = 'development key'
+R_SERVER = redis.Redis('192.168.0.18', port=6379)
 
 @app.route('/')
 @app.route('/index')
@@ -17,14 +18,17 @@ def homepage():
     if request.method == 'POST':
 
         search_category = request.form['Category']
+        found_in_cache = 'False'
         key = search_category
+        if (R_SERVER.get(key)):
+            found_in_cache = 'True'
 
         matched_items = Items.query.filter_by(Category=search_category).all()
-        return render_template('homepage.html', form=form, MyItems = matched_items)  
+        return render_template('homepage.html', form=form, MyItems = matched_items, found_in_cache = found_in_cache)  
     else:
 
         items_all = Items.query.all()
-        return render_template('homepage.html', form=form, MyItems = items_all)
+        return render_template('homepage.html', form=form, MyItems = items_all, found_in_cache = found_in_cache)
 
 
 @app.route('/items_add', methods=['GET', 'POST'])
