@@ -33,9 +33,10 @@ def homepage():
         else:
             
             matched_items = Items.query.filter_by(Category=search_category).all()
-            matched_itesm_json = json.dumps([dict(r) for r in matched_items])
+            matched_itesm_json = json.dumps(matched_items)
             R_SERVER.set(key,matched_itesm_json)
             R_SERVER.expire(key, 36);
+            return matched_itesm_json
         
         return render_template('homepage.html', form=form, MyItems = matched_items, found_in_cache = found_in_cache)  
     else:
