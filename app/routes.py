@@ -23,8 +23,12 @@ def homepage():
         key = search_category
         if (R_SERVER.get(key)):
             found_in_cache = 'True'
-
-        matched_items = Items.query.filter_by(Category=search_category).all()
+            matched_items = Items.query.filter_by(Category=search_category).all()
+        else:
+            
+            matched_items = Items.query.filter_by(Category=search_category).all()
+            R_SERVER.set(key,matched_items)
+        
         return render_template('homepage.html', form=form, MyItems = matched_items, found_in_cache = found_in_cache)  
     else:
 
