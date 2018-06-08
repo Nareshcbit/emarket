@@ -55,7 +55,7 @@ def redis():
     #Get the Key
     if request.method == 'POST':
         search_category = request.form['Category']
-        if not search_category.isspace():
+        if ( (search_category) and  (search_category.isspace() == False) ):
             key = search_category
 
     #Check if result is already in cache
