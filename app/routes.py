@@ -53,17 +53,20 @@ def redis():
         search_category = request.form['Category']
         key = search_category
         if (R_SERVER.get(key)):
-            result = R_SERVER.get(key)
-        else:
             found_in_cache = 'True'
+            result_json = R_SERVER.get(key)
+            result = json.loads(result_json)
+        else:
+            found_in_cache = 'False'
             matched_items = Items.query.filter_by(Category=search_category).all()
             result = (items_schema.dump(matched_items)).data
+            result_json = json.dumps(result)
             R_SERVER.set(key,result)
-            R_SERVER.expire(key, 360)
+            R_SERVER.expire(key, 30)
             c = None
 
-        #return render_template('redis_dev.html', a=cached, b = result, c = c, d= result)
-        return render_template('redis.html', form=form, MyItems = result, found_in_cache = found_in_cache)
+        return render_template('redis_dev.html', a=found_in_cache, b = result, c = result_json, d= result)
+        #return render_template('redis.html', form=form, MyItems = result, found_in_cache = found_in_cache)
     else:
 
         items_all = Items.query.all()
