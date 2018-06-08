@@ -15,7 +15,11 @@ https://gist.github.com/swdevbali/f4adcacd402216256dd8
 
 
 [{'Price': 1200, 'Model': 'XPS', 'Vendor': 'Dell', 'Category': 'Mobile', 'Uid': 2}]
+
 b"[{'Price': 1200, 'Model': 'XPS', 'Vendor': 'Dell', 'Category': 'Mobile', 'Uid': 2}]"
 
 [{'Price': 1200, 'Model': 'X', 'Vendor': 'Dell', 'Category': 'Server', 'Uid': 3}, {'Price': 1000, 'Model': 'Macbook Pro', 'Vendor': 'Apple', 'Category': 'Server', 'Uid': 4}]
 
+b"[{'Price': 1200, 'Model': 'X', 'Vendor': 'Dell', 'Category': 'Server', 'Uid': 3}, {'Price': 1000, 'Model': 'Macbook Pro', 'Vendor': 'Apple', 'Category': 'Server', 'Uid': 4}]"
+
+[{"Vendor": "Dell", "Price": 1200, "Category": "Laptop", "Uid": 1, "Model": "XPS"}]
