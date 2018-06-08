@@ -47,7 +47,7 @@ def items_add():
 @app.route('/redis', methods=['GET', 'POST'])
 def redis():
   
-    found_in_cache = None
+    found_in_cache = False
 
     if request.method == 'POST':
         search_category = request.form['Category']

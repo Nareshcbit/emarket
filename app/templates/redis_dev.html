@@ -6,21 +6,37 @@
 
 
 
+ 		<form class="inline" action="{{ url_for('redis') }}" method=post>
+    		{{ form.hidden_tag() }}
 
-found_in_cache : {{ found_in_cache }}
-<br/>
+		   	<!-- Search form -->
+		   	<p>Search items by category?. </p>
+		   	<div class="row">
+		    <div class="col-xs-6 col-md-4">
+		      <div class="input-group">
+		       	{{ form.Category(class="form-control", placeholder="Example: Laptop, Mobile, Tablet, etc.") }}
+		         <div class="input-group-btn">
+		          <button class="btn btn-primary" type="submit">
+		            <span class="glyphicon glyphicon-search"></span>
+		          </button>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		    
+		 </form>
 
-result: {{ result }}
-<br/>
 
-result_json: {{ result_json }}
-<br/>
+		 <br/><br/>
+		 
+		 {% if found_in_cache  %}
 
+		 <div class="alert alert-success" role="alert"> Result is in cache! </div>
+		 {% else %}
 
-			{% for record in result %}
-      				{{record.Uid}}
-			{% endfor %}
+		 <div class="alert alert-warning" role="alert"> Result is not in cache! </div>
 
+		 {% endif %}
 		<table class="table">
 	    <!--Table head-->
 	    <thead>
