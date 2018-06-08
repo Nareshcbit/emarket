@@ -36,6 +36,31 @@
 		 {% endif %}
 		
 		 {{ MyItems }}
-	
+		
+		<table class="table">
+	    <!--Table head-->
+	    <thead>
+	        <tr>
+      				<th>Uid</th>
+      				<th>Category</th>
+      				<th>Vendor</th>      				
+      				<th>Model</th>
+      				<th>Price</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+
+			{% for MyItem in MyItems %}
+			<tr>
+      				<td>{{MyItem.Uid}}</td>
+      				<td>{{MyItem.Category}}</td>
+      				<td>{{MyItem.Vendor}}</td>
+      				<td>{{MyItem.Model}}</td>
+      				<td>{{MyItem.Price}}</td>
+   			</tr>
+			{% endfor %}
+
+	 	</tbody>
+	</table>
 
 {% endblock %}
