@@ -55,14 +55,14 @@ def redis():
         if (R_SERVER.get(key)):
             found_in_cache = 'True'
             result_json = R_SERVER.get(key)
-            result = ""
+            result = json.loads(result_json)
             #result = json.loads(result_json)
         else:
             found_in_cache = 'False'
             matched_items = Items.query.filter_by(Category=search_category).all()
             result = (items_schema.dump(matched_items)).data
             result_json = json.dumps(result)
-            R_SERVER.set(key,result)
+            R_SERVER.set(key,result_json)
             R_SERVER.expire(key, 30)
             c = None
 
