@@ -55,7 +55,7 @@ def redis():
         if (R_SERVER.get(key)):
             cached = 'Yes'
             result = R_SERVER.get(key)
-            #c = result.decode('utf-8')
+            c = None
 
         else:
             cached = 'No'
