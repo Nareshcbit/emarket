@@ -55,4 +55,4 @@ def redis():
     else:
 
         items_all = Items.query.all()
-        return render_template('homepage.html', form=form, MyItems = items_all, found_in_cache = found_in_cache)
+        return render_template('redis.html', form=form, MyItems = items_all, found_in_cache = found_in_cache)
