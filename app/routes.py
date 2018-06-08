@@ -57,9 +57,9 @@ def redis():
             matched_items = Items.query.filter_by(Category=search_category).all()
             result = items_schema.dump(matched_items)
             result_data = result.data
-             R_SERVER.set(key,result_data)
-             R_SERVER.expire(key, 360)
-             
+            R_SERVER.set(key,result_data)
+            R_SERVER.expire(key, 360)
+
         return render_template('redis_result.html', form=form, MyItems = result_data, found_in_cache = found_in_cache)
     else:
 
