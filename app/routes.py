@@ -1,6 +1,7 @@
 from app import app, db
 
 from flask import render_template, redirect, request
+from flask import jsonify
 from app.forms import AddItemsForm, SearchItemsForm
 from app.models import Items, ItemsSchema
 from redis import Redis
