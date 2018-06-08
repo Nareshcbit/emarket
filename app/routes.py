@@ -41,3 +41,18 @@ def items_add():
         return redirect('/index')
     else:
         return render_template('items_add.html', form=form)
+
+@app.route('/redis', methods=['GET', 'POST'])
+def redis():
+  
+    form = SearchItemsForm()
+    found_in_cache = 'False'
+    if request.method == 'POST':
+        search_category = request.form['Category']
+        matched_items = Items.query.filter_by(Category=search_category).all()
+        result = items_schema.dump(matched_items)
+        return jsonify(result.data)
+    else:
+
+        items_all = Items.query.all()
+        return render_template('homepage.html', form=form, MyItems = items_all, found_in_cache = found_in_cache)
