@@ -4,9 +4,7 @@
 
 {% block body %}
 
-
-
- 		<form class="inline" action="{{ url_for('redis') }}" method=post>
+ 		<form class="inline" action="{{ url_for('search') }}" method=post>
     		{{ form.hidden_tag() }}
 
 		   	<!-- Search form -->
@@ -39,7 +37,7 @@
 
 		 {% endif %}
 
-		 
+
 		<table class="table">
 	    <!--Table head-->
 	    <thead>
