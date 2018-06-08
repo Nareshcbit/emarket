@@ -47,7 +47,7 @@ def items_add():
 def redis():
   
     form = SearchItemsForm()
-    found_in_cache = False
+    found_in_cache = "False"
 
     if request.method == 'POST':
         search_category = request.form['Category']
@@ -56,11 +56,12 @@ def redis():
         key = "All"
 
     if (R_SERVER.get(key)):
-        found_in_cache = True
+        found_in_cache = "True"
         result_json = R_SERVER.get(key)
         result = json.loads(result_json)
     else:
 
+        found_in_cache = "False"
         if key == "All":
              matched_items = Items.query.all()
         else:
@@ -72,4 +73,4 @@ def redis():
         R_SERVER.expire(key, 30)
 
 
-    return render_template('redis_dev.html', form = form, key = key, found_in_cache=found_in_cache, result = result)
+    return render_template('redis_dev.html', form = form, key = key, found_in_cache = found_in_cache, result = result)

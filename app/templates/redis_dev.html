@@ -29,7 +29,12 @@
 
 		 <br/><br/>
 		 
-		 {% if found_in_cache  %}
+		 Key: {{ key}} <br/>
+		 Found in Cache: {{ found_in_cache }} <br/>
+		 
+
+
+		 {% if found_in_cache == "True"  %}
 
 		 <div class="alert alert-success" role="alert"> Result is in cache! </div>
 		 {% else %}
