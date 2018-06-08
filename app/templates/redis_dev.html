@@ -1,3 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}  eMarket - Nxglab		{% endblock %}
+
+{% block body %}
+
+
+
+
 found_in_cache : {{ found_in_cache }}
 <br/>
 
@@ -11,3 +20,31 @@ result_json: {{ result_json }}
 			{% for record in result %}
       				{{record.Uid}}
 			{% endfor %}
+
+		<table class="table">
+	    <!--Table head-->
+	    <thead>
+	        <tr>
+      				<th>Uid</th>
+      				<th>Category</th>
+      				<th>Vendor</th>      				
+      				<th>Model</th>
+      				<th>Price</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+
+			{% for record in result %}
+			<tr>
+      				<td>{{record.Uid}}</td>
+      				<td>{{record.Category}}</td>
+      				<td>{{record.Vendor}}</td>
+      				<td>{{record.Model}}</td>
+      				<td>{{record.Price}}</td>
+   			</tr>
+			{% endfor %}
+
+	 	</tbody>
+	</table>
+
+{% block%}
