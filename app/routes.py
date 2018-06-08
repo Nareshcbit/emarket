@@ -53,6 +53,7 @@ def redis():
         matched_items = Items.query.filter_by(Category=search_category).all()
         result = items_schema.dump(matched_items)
         return jsonify(result.data)
+        return render_template('redis_result.html', form=form, MyItems = result.data, found_in_cache = found_in_cache)
     else:
 
         items_all = Items.query.all()
