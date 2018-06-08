@@ -48,13 +48,17 @@ def redis():
   
     form = SearchItemsForm()
     found_in_cache = "False"
+    
+    #Display all items for GET request and if it is a blank search in POST
+    key = "All"
 
+    #Get the Key
     if request.method == 'POST':
         search_category = request.form['Category']
-        key = search_category
-    else:
-        key = "All"
+        if not search_category.isspace():
+            key = search_category
 
+    #Check if result is already in cache
     if (R_SERVER.get(key)):
         found_in_cache = "True"
         result_json = R_SERVER.get(key)
