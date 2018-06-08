@@ -52,7 +52,7 @@ def redis():
         search_category = request.form['Category']
         matched_items = Items.query.filter_by(Category=search_category).all()
         result = items_schema.dump(matched_items)
-        return render_template('redis_result.html', form=form, MyItems = result.data, found_in_cache = found_in_cache)
+        return render_template('redis_result.html', form=form, MyItems = json.dumps(result.data), found_in_cache = found_in_cache)
     else:
 
         items_all = Items.query.all()
