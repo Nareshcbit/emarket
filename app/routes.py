@@ -64,9 +64,8 @@ def redis():
             result_json = json.dumps(result)
             R_SERVER.set(key,result_json)
             R_SERVER.expire(key, 30)
-            c = None
 
-        return render_template('redis_dev.html', a=found_in_cache, b = result, c = result_json, d= result)
+        return render_template('redis_dev.html', found_in_cache=found_in_cache, result = result, result_json = result_json)
         #return render_template('redis.html', form=form, MyItems = result, found_in_cache = found_in_cache)
     else:
 

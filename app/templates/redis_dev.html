@@ -1,14 +1,13 @@
-a : {{ a }}
+found_in_cache : {{ found_in_cache }}
 <br/>
 
-b: {{ b }}
+result: {{ result }}
 <br/>
 
-c: {{ c }}
-<br/>
-
-d: {{ d }}
+result_json: {{ result_json }}
 <br/>
 
 
-
+			{% for record in result %}
+      				{{record.Uid}}
+			{% endfor %}
