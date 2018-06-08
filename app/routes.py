@@ -57,7 +57,7 @@ def redis():
         else:
             matched_items = Items.query.filter_by(Category=search_category).all()
             result = items_schema.dump(matched_items)
-            result_data = (result.data).encode('utf-8')
+            result_data = (result.data[0]).encode('utf-8')
             R_SERVER.set(key,result_data)
             R_SERVER.expire(key, 360)
 
