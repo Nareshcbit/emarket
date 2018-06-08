@@ -11,7 +11,6 @@ import json
 
 
 app.secret_key = 'development key'
-#R_SERVER = redis.Redis('192.168.0.18', port=6379)
 R_SERVER = redis.StrictRedis('192.168.0.18', 6379, charset="utf-8", decode_responses=True)
 items_schema = ItemsSchema(many=True)
 
@@ -47,6 +46,7 @@ def items_add():
 @app.route('/redis', methods=['GET', 'POST'])
 def redis():
   
+    form = SearchItemsForm()
     found_in_cache = False
 
     if request.method == 'POST':
@@ -72,4 +72,4 @@ def redis():
         R_SERVER.expire(key, 30)
 
 
-    return render_template('redis_dev.html', key = key, found_in_cache=found_in_cache, result = result)
+    return render_template('redis_dev.html', form = form, key = key, found_in_cache=found_in_cache, result = result)
