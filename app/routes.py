@@ -11,7 +11,8 @@ import json
 
 
 app.secret_key = 'development key'
-R_SERVER = redis.Redis('192.168.0.18', port=6379)
+#R_SERVER = redis.Redis('192.168.0.18', port=6379)
+R_SERVER = redis.StrictRedis('192.168.0.18', 6379, charset="utf-8", decode_responses=True)
 items_schema = ItemsSchema(many=True)
 
 @app.route('/')
@@ -54,7 +55,7 @@ def redis():
         if (R_SERVER.get(key)):
             cached = 'Yes'
             result = R_SERVER.get(key)
-            c = result.decode('utf-8')
+            #c = result.decode('utf-8')
 
         else:
             cached = 'No'

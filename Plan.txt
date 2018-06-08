@@ -23,3 +23,16 @@ d: [{'Price': 1200, 'Uid': 1, 'Model': 'XPS', 'Vendor': 'Dell', 'Category': 'Lap
 
 [{'Price': 1200, 'Uid': 1, 'Model': 'XPS', 'Vendor': 'Dell', 'Category': 'Laptop'}]
 b"[{'Category': 'Laptop', 'Price': 1200, 'Uid': 1, 'Model': 'XPS', 'Vendor': 'Dell'}]" 
+
+
+a : No 
+b: [{'Model': 'XPS', 'Price': 1200, 'Category': 'Laptop', 'Uid': 1, 'Vendor': 'Dell'}] 
+c: None 
+d: [{'Model': 'XPS', 'Price': 1200, 'Category': 'Laptop', 'Uid': 1, 'Vendor': 'Dell'}] 
+
+
+a : Yes 
+b: b"[{'Model': 'XPS', 'Price': 1200, 'Category': 'Laptop', 'Uid': 1, 'Vendor': 'Dell'}]" 
+c: [{'Model': 'XPS', 'Price': 1200, 'Category': 'Laptop', 'Uid': 1, 'Vendor': 'Dell'}] 
+d: b"[{'Model': 'XPS', 'Price': 1200, 'Category': 'Laptop', 'Uid': 1, 'Vendor': 'Dell'}]" 
+
