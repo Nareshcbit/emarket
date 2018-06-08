@@ -16,7 +16,6 @@ items_schema = ItemsSchema(many=True)
 
 @app.route('/')
 @app.route('/index')
-@app.route('/homepage', methods=['GET', 'POST'])
 @app.route('/search', methods=['GET', 'POST'])
 def search():
   
