@@ -48,14 +48,15 @@ def items_add():
 def redis():
   
     form = SearchItemsForm()
-    found_in_cache = 'False'
+    found_in_cache = None
     if request.method == 'POST':
         search_category = request.form['Category']
         key = search_category
         if (R_SERVER.get(key)):
             found_in_cache = 'True'
             result_json = R_SERVER.get(key)
-            result = json.loads(result_json)
+            result = ""
+            #result = json.loads(result_json)
         else:
             found_in_cache = 'False'
             matched_items = Items.query.filter_by(Category=search_category).all()
