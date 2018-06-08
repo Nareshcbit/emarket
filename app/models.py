@@ -21,7 +21,7 @@ class Items(db.Model):
         self.Model = Model
         self.Price = Price
 
- class UserSchema(ma.Schema):
+class ItemsSchema(ma.Schema):
     class Meta:
         # Fields to expose
         fields = ('Uid', 'Category', 'Vendor', 'Model', 'Price')
