@@ -2,7 +2,7 @@ from app import app, db
 
 from flask import render_template, redirect, request
 from app.forms import AddItemsForm, SearchItemsForm
-from app.models import Items
+from app.models import Items, ItemsSchema
 from redis import Redis
 import redis
 import hashlib
@@ -11,6 +11,7 @@ import json
 
 app.secret_key = 'development key'
 R_SERVER = redis.Redis('192.168.0.18', port=6379)
+items_schema = ItemsSchema(many=True)
 
 @app.route('/')
 @app.route('/index')

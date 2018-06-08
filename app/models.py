@@ -1,4 +1,5 @@
 from app import db
+from app import ma
 
 class Items(db.Model):
 
@@ -20,4 +21,7 @@ class Items(db.Model):
         self.Model = Model
         self.Price = Price
 
- 
+ class UserSchema(ma.Schema):
+    class Meta:
+        # Fields to expose
+        fields = ('Uid', 'Category', 'Vendor', 'Model', 'Price')
