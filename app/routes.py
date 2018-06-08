@@ -52,18 +52,17 @@ def redis():
         search_category = request.form['Category']
         key = search_category
         if (R_SERVER.get(key)):
-            matched_items = None
-            result = None
-            result_data = R_SERVER.get(key)
-            result_data = result_data.decode()
+            cached = 'Yes'
+            result = R_SERVER.get(key)
+
         else:
+            cached = 'No'
             matched_items = Items.query.filter_by(Category=search_category).all()
-            result = items_schema.dump(matched_items)
-            result_data = result.data
-            R_SERVER.set(key,result_data)
+            result = (items_schema.dump(matched_items)).data
+            R_SERVER.set(key,result)
             R_SERVER.expire(key, 360)
 
-        return render_template('redis_dev.html', a=matched_items, b = result, c = result_data, d= result_data)
+        return render_template('redis_dev.html', a=cached, b = result, c = result, d= result)
     else:
 
         items_all = Items.query.all()
