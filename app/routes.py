@@ -21,24 +21,8 @@ def homepage():
     form = SearchItemsForm()
     found_in_cache = 'False'
     if request.method == 'POST':
-
         search_category = request.form['Category']
-        hash = hashlib.sha224((str(search_category)).encode('utf-8')).hexdigest()
-        key = "sql_cache:" + hash
-        matched_items = None
-
-        if (R_SERVER.get(key)):
-            found_in_cache = 'True'
-            matched_items_json = R_SERVER.get(key)
-            return matched_items_json
-        else:
-            
-            matched_items = Items.query.filter_by(Category=search_category).all()
-            matched_itesm_json = json.dumps(matched_items)
-            R_SERVER.set(key,matched_itesm_json)
-            R_SERVER.expire(key, 36);
-            return matched_itesm_json
-        
+        matched_items = Items.query.filter_by(Category=search_category).all()
         return render_template('homepage.html', form=form, MyItems = matched_items, found_in_cache = found_in_cache)  
     else:
 
