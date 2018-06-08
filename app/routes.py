@@ -47,27 +47,29 @@ def items_add():
 @app.route('/redis', methods=['GET', 'POST'])
 def redis():
   
-    form = SearchItemsForm()
     found_in_cache = None
+
     if request.method == 'POST':
         search_category = request.form['Category']
         key = search_category
-        if (R_SERVER.get(key)):
-            found_in_cache = 'True'
-            result_json = R_SERVER.get(key)
-            result = json.loads(result_json)
-            #result = json.loads(result_json)
-        else:
-            found_in_cache = 'False'
-            matched_items = Items.query.filter_by(Category=search_category).all()
-            result = (items_schema.dump(matched_items)).data
-            result_json = json.dumps(result)
-            R_SERVER.set(key,result_json)
-            R_SERVER.expire(key, 30)
+    else:
+        key = "All"
 
-        return render_template('redis_dev.html', found_in_cache=found_in_cache, result = result, result_json = result_json)
-        #return render_template('redis.html', form=form, MyItems = result, found_in_cache = found_in_cache)
+    if (R_SERVER.get(key)):
+        found_in_cache = True
+        result_json = R_SERVER.get(key)
+        result = json.loads(result_json)
     else:
 
-        items_all = Items.query.all()
-        return render_template('redis.html', form=form, MyItems = items_all, found_in_cache = found_in_cache)
+        if key == "All":
+             matched_items = Items.query.all()
+        else:
+            matched_items = Items.query.filter_by(Category=search_category).all()
+        
+        result = (items_schema.dump(matched_items)).data
+        result_json = json.dumps(result)
+        R_SERVER.set(key,result_json)
+        R_SERVER.expire(key, 30)
+
+
+    return render_template('redis_dev.html', key = key, found_in_cache=found_in_cache, result = result)
