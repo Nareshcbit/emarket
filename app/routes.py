@@ -53,11 +53,10 @@ def redis():
         key = search_category
         if (R_SERVER.get(key)):
             result_data = R_SERVER.get(key)
-            result_data = (result_data).decode('utf-8')
         else:
             matched_items = Items.query.filter_by(Category=search_category).all()
             result = items_schema.dump(matched_items)
-            result_data = (result.data[0]).encode('utf-8')
+            result_data = result.data
             R_SERVER.set(key,result_data)
             R_SERVER.expire(key, 360)
 
