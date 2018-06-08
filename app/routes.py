@@ -54,6 +54,7 @@ def redis():
         if (R_SERVER.get(key)):
             cached = 'Yes'
             result = R_SERVER.get(key)
+            c = result.decode('utf-8')
 
         else:
             cached = 'No'
@@ -61,8 +62,9 @@ def redis():
             result = (items_schema.dump(matched_items)).data
             R_SERVER.set(key,result)
             R_SERVER.expire(key, 360)
+            c = None
 
-        return render_template('redis_dev.html', a=cached, b = result, c = result, d= result)
+        return render_template('redis_dev.html', a=cached, b = result, c = c, d= result)
     else:
 
         items_all = Items.query.all()
