@@ -61,7 +61,7 @@ def items_add():
         newitem = Items(request.form['Category'], request.form['Vendor'], request.form['Model'], request.form['Price'])
         db.session.add(newitem)
         db.session.commit()
-        return redirect('/search')
+        return render_template('/items_add.html', form=form, keyword="Add")
     else:
-        return render_template('items_add.html', form=form)
+        return render_template('items_add.html', form=form, keyword="")
 

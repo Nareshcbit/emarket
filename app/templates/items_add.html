@@ -5,6 +5,11 @@
 
 {% block body %}
 
+  {% if user_message == "Add" %}
+   
+   <h3>Added Successfully </h3>
+
+  {% endif %}
   <form class="form-horizontal" action="{{ url_for('items_add') }}" method=post>
     {{ form.hidden_tag() }}
  
