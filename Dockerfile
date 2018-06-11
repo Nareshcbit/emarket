@@ -13,7 +13,9 @@ COPY . ${APP_DIR}
 RUN pip install --no-cache-dir -r ${APP_DIR}/requirements.txt
 WORKDIR ${APP_DIR}
 
-RUN flask db init && flask db migrate && flask db upgrade 
+RUN flask db init 
+RUN flask db migrate
+RUN flask db upgrade 
 
 EXPOSE 5000
 ENTRYPOINT ["flask", "run", "--host=0.0.0.0"]
