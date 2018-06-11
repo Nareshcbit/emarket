@@ -5,3 +5,4 @@ Flask-WTF
 redis
 flask_marshmallow
 marshmallow-sqlalchemy
+pymysql
