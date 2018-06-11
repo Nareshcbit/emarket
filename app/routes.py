@@ -11,7 +11,7 @@ import json
 
 
 app.secret_key = 'development key'
-R_SERVER = redis.StrictRedis('192.168.0.18', 6379, charset="utf-8", decode_responses=True)
+R_SERVER = redis.StrictRedis(app.config['REDIS_HOST'], 6379, charset="utf-8", decode_responses=True)
 items_schema = ItemsSchema(many=True)
 
 @app.route('/')
