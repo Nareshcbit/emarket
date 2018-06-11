@@ -13,7 +13,7 @@ COPY . ${APP_DIR}
 RUN pip install --no-cache-dir -r ${APP_DIR}/requirements.txt
 WORKDIR ${APP_DIR}
 
-RUN flask db init 
+#RUN flask db init 
 RUN flask db migrate -m "Items Table"
 RUN flask db upgrade 
 
