@@ -3,6 +3,7 @@ FROM python:alpine3.6
 
 ARG APP_DIR='/emarket'
 ENV FLASK_APP=emarket.py
+ENV REDIS_HOST='192.168.0.18'
 
 
 RUN apk add --no-cache bash  && apk add --no-cache curl && apk add --no-cache nano
