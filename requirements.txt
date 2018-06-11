@@ -1,4 +1,5 @@
 flask
+mysql-python
 flask-sqlalchemy
 flask-migrate
 Flask-WTF
