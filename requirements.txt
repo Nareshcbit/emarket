@@ -1,7 +1,6 @@
 flask
 MySQL-python
 flask_mysqldb
-mysql-connector
 flask-sqlalchemy
 flask-migrate
 Flask-WTF
